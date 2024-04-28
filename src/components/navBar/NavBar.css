@@ -68,6 +68,7 @@
 
 .navbar-ul-links li:hover {
   color: black;
+  cursor: pointer;
 }
 
 .navbar-hamburger {

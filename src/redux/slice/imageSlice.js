@@ -3,8 +3,6 @@ import axios from "axios";
 
 const API_URL = "https://api.unsplash.com/search/photos";
 const IMAGES_PER_PAGE = 12;
-// const key = "uFzG2LdOW2mLKarhZwW3u0qYaV5prZqTx8uY0K-NeVg";
-const key = "7IuKlxrOqXsmEjfimKdjIwUTuJSU207GceeQE-qwGVc";
 
 export const fetchData = createAsyncThunk(
   "data/fetchData",
@@ -12,7 +10,7 @@ export const fetchData = createAsyncThunk(
     console.log("query", query, page);
     try {
       const response = await axios.get(
-        `${API_URL}?query=${query}&page=${page}&per_page=${IMAGES_PER_PAGE}&client_id=${key}`
+        `${API_URL}?query=${query}&page=${page}&per_page=${IMAGES_PER_PAGE}&client_id=${process.env.REACT_APP_API_KEY}`
       );
       return response.data;
     } catch (error) {

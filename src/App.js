@@ -7,7 +7,7 @@ import "./App.css";
 
 const App = () => {
   const dispatch = useDispatch();
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState("school");
   const images = useSelector((state) => state.data.entities);
   const loading = useSelector((state) => state.data.loading);
   const error = useSelector((state) => state.data.error);
@@ -16,6 +16,10 @@ const App = () => {
   const handleStateChange = (newState) => {
     setValue(newState);
   };
+
+  useEffect(() => {
+    dispatch(fetchData({ query: value, page: page.current }));
+  }, []);
 
   const loadMoreImages = useCallback(() => {
     if (

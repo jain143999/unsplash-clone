@@ -6,6 +6,7 @@ import "./NavBar.css";
 import { useDispatch } from "react-redux";
 // import { fetchData } from "../src/redux/slice/imageSlice";
 import { fetchData } from "../../redux/slice/imageSlice";
+import image from "../../images/ms-icon.png";
 
 const Navbar = ({ onChange }) => {
   const dispatch = useDispatch();
@@ -21,11 +22,7 @@ const Navbar = ({ onChange }) => {
     <nav className="navbar">
       <div className="navbar-content">
         <div className="navbar-brand">
-          <img
-            src="/path-to-your-logo.png"
-            alt="Logo"
-            className="navbar-logo"
-          />
+          <img src={image} alt="Logo" className="navbar-logo" />
         </div>
         <div className="navbar-search">
           <FaSearch className="search-icon" onClick={handleSearch} />
